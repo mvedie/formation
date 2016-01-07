@@ -4,6 +4,9 @@ namespace App\Frontend\Modules\News;
 use \OCFram\BackController;
 use \OCFram\HTTPRequest;
 use \Entity\Comment;
+use \FormBuilder\CommentFormBuilder;
+use \OCFram\FormHandler;
+
 
 class NewsController extends BackController
 {
@@ -56,30 +59,34 @@ class NewsController extends BackController
 
   public function executeInsertComment(HTTPRequest $request)
   {
-    $this->page->addVar('title', 'Ajout d\'un commentaire');
-    
-    if ($request->postExists('pseudo'))
+    // Si le formulaire a été envoyé.
+    if ($request->method() == 'POST')
     {
       $comment = new Comment([
-        'news' => $request->getData('news'),
-        'auteur' => $request->postData('pseudo'),
-        'contenu' => $request->postData('contenu')
+          'news' => $request->getData('news'),
+          'auteur' => $request->postData('auteur'),
+          'contenu' => $request->postData('contenu')
       ]);
-      
-      if ($comment->isValid())
-      {
-        $this->managers->getManagerOf('Comments')->save($comment);
-        
-        $this->app->user()->setFlash('Le commentaire a bien été ajouté, merci !');
-        
-        $this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
-      }
-      else
-      {
-        $this->page->addVar('erreurs', $comment->erreurs());
-      }
-      
-      $this->page->addVar('comment', $comment);
     }
+    else
+    {
+      $comment = new Comment;
+    }
+
+    $formBuilder = new CommentFormBuilder($comment);
+    $formBuilder->build();
+
+    $form = $formBuilder->form();
+
+    if ($request->method() == 'POST' && $form->isValid())
+    {
+      $this->managers->getManagerOf('Comments')->save($comment);
+      $this->app->user()->setFlash('Le commentaire a bien été ajouté, merci !');
+      $this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
+    }
+
+    $this->page->addVar('comment', $comment);
+    $this->page->addVar('form', $form->createView());
+    $this->page->addVar('title', 'Ajout d\'un commentaire');
   }
 }
