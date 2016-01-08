@@ -21,3 +21,7 @@
 * If you have good memory, you know that SQL Injection mean ! 
 * Remove all SQL Injection vulnerabilities. 
 
+# 5 - Fix JavaScript Injection :
+* Google is your best friend.
+* Remove all JavaScript Injection vulnerabilities. 
+
