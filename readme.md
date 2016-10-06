@@ -11,7 +11,10 @@
 * Store user in Database : Create table(s) according to DreamCentury database nomenclature.
 * Add a new Manager to work the new table(s) (according to the Framework manager name nomenclature).
 * Update your ConnexionController code.
-* Adding a subscribtion form.
+* Adding a subscribtion form : Input list [ login, passwod, password confirmation, email, email confirmation ].
+
+# 2.1 - Two types of user. 
+* The users who subrscribe with subscription form are now simple writers. They are not a full administrator and they can only edit their news.
 
 
 # 3 - CSS : Fix the CSS error when text is too long.
