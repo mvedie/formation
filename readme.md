@@ -11,6 +11,7 @@
 * Store user in Database : Create table(s) according to DreamCentury database nomenclature.
 * Add a new Manager to work the new table(s) (according to the Framework manager name nomenclature).
 * Update your ConnexionController code.
+* Adding a subscribtion form.
 
 
 # 3 - CSS : Fix the CSS error when text is too long.
