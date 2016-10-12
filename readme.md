@@ -42,3 +42,6 @@ This part consist to add a functionnality for ask a route for a Controller and a
 * Show errors or add new comment directly if there are no error.
 * The HTTP Response of any ajax call must be a JSON Object.
 
+
+# 8 - Centraliser votre gestion des liens. 
+* Voir avec @mvedie le principe des getLinkTo...
