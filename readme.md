@@ -37,6 +37,8 @@ This part consist to add a functionnality for ask a route for a Controller and a
 
 # 7 - Add Feature : Ajax ! Flower Party :)
 * Change the comportment of the form to add a comment in a news page.
+* The form are include in the same page of the news. On top and bottom of comment list.
 * Form to add new comment must work now with ajax. So when user submit his form, don't reload the page but post an ajax query to valid the form.
 * Show errors or add new comment directly if there are no error.
-* The returned data of any ajax call need to be a JSON Object.
+* The HTTP Response of any ajax call must be a JSON Object.
+
