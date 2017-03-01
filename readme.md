@@ -1,4 +1,4 @@
-## Exercice for Erwan
+## Exercices
 
 # 0 - Build the full FrameWork from OCRoom : Done !
 
